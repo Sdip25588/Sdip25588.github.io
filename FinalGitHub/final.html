@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<title> Quiet Motion</title>
+		<style>
+			h1{
+				color:#1CF5EF;
+			}
+
+			h2{
+				color: #4fb056;
+			}
+
+			p{
+				color:#00ff00;
+				background-color:#ff00ff;
+				border: 5px solid #0000ff;
+				padding:10px;
+				width: 1200px;
+				border-radius: 10px;
+				margin:40px;
+			}
+			.smImg{
+				widht:100px;
+				height:50px;
+			}
+			body{
+				background-color:lightred;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div align="center">
+
+		<h1>A peaceful journey</h1>
+
+		<p>This animation shows a car moving along a road with a peaceful background.
+			It focuses on motion and atmosphere rather than words.
+			The animation and sound were created and then displayed on a webpage.</p>
+		
+
+		<video id="myVideo" width="600" controls>
+			<source src="finalAnimation.mp4" type="video/mp4">
+		</video>
+
+		<audio id="myAudio">
+			<source src="sound.mp3" type="audio/mpeg">
+		</audio>
+
+		<h2> Click icon below to visit the image page!</h2>
+		<a href="Image.html"><img class=smImg src="butterfly.jpg"></a>
+
+		<script>
+			const video=document.getElementById("myVideo");
+			const audio=document.getElementById("myAudio");
+
+			video.addEventListener("play",() => {
+				audio.play();
+			});
+
+			video.addEventListener("pause",() =>{
+				audio.pause();
+			});
+
+			video.addEventListener("ended",() =>{
+				audio.pause();
+				audio.currentTime = 0;
+			});
+		</script>
+	<body>
+</html>
