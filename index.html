@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San's Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a2e;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        h1 {
+            color: #C021FA;
+            margin-top: 40px;
+        }
+        p.intro {
+            max-width: 600px;
+            text-align: center;
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .card {
+            background-color: #16213e;
+            border: 2px solid #0f3460;
+            border-radius: 12px;
+            padding: 30px;
+            width: 280px;
+            text-align: center;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #C021FA;
+        }
+        .card h2 {
+            color: #2ADE1F;
+            margin-top: 0;
+        }
+        .card p {
+            color: #b0b0b0;
+            line-height: 1.5;
+        }
+        .card a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 24px;
+            background-color: #C021FA;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        .card a:hover {
+            background-color: #9b17c9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to San's Portfolio</h1>
+    <p class="intro">Explore my projects — a travel blog sharing adventures outside of New York City, and a multimedia animation called Quiet Motion.</p>
+
+    <div class="projects">
+        <div class="card">
+            <h2>Travel Adventures</h2>
+            <p>A blog about my travels to Great Falls, Washington D.C., Niagara Falls, and the NY State Museum.</p>
+            <a href="MmpGitHubAssignment/Index.html">Visit</a>
+        </div>
+        <div class="card">
+            <h2>Quiet Motion</h2>
+            <p>A peaceful animation of a car moving along a road, with synchronized audio and original artwork.</p>
+            <a href="FinalGitHub/final.html">Visit</a>
+        </div>
+    </div>
+</body>
+</html>
