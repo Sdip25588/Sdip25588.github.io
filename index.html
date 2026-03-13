@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>San's Portfolio</title>
+
+		<style>
+			*{
+				margin:0;
+				padding:0;
+				box-sizing:border-box;
+			}
+			body{
+				font-family:Arial, sans-serif;
+				background-color:#f0f4f8;
+				color:#333;
+			}
+			header{
+				background-color:#2c3e50;
+				color:#fff;
+				text-align:center;
+				padding:40px 20px;
+			}
+			header h1{
+				font-size:2.2em;
+				margin-bottom:10px;
+			}
+			header p{
+				font-size:1.1em;
+				color:#bdc3c7;
+			}
+			.projects{
+				display:flex;
+				flex-wrap:wrap;
+				justify-content:center;
+				gap:30px;
+				padding:40px 20px;
+				max-width:900px;
+				margin:0 auto;
+			}
+			.card{
+				background:#fff;
+				border-radius:12px;
+				box-shadow:0 2px 8px rgba(0,0,0,0.12);
+				padding:30px;
+				width:380px;
+				text-align:center;
+				transition:transform 0.2s, box-shadow 0.2s;
+			}
+			.card:hover{
+				transform:translateY(-4px);
+				box-shadow:0 6px 16px rgba(0,0,0,0.18);
+			}
+			.card h2{
+				color:#2c3e50;
+				margin-bottom:12px;
+			}
+			.card p{
+				color:#555;
+				margin-bottom:18px;
+				line-height:1.5;
+			}
+			.card a{
+				display:inline-block;
+				text-decoration:none;
+				background-color:#3498db;
+				color:#fff;
+				padding:10px 24px;
+				border-radius:6px;
+				font-weight:bold;
+			}
+			.card a:hover{
+				background-color:#2980b9;
+			}
+			footer{
+				text-align:center;
+				padding:20px;
+				color:#888;
+				font-size:0.9em;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<header>
+			<h1>Welcome! I'm San</h1>
+			<p>Always a pessimist — but always exploring.</p>
+		</header>
+
+		<section class="projects">
+
+			<div class="card">
+				<h2>Travel Adventures</h2>
+				<p>A collection of my travel experiences outside New York, including Great Falls, Washington D.C., Niagara Falls, and the NYS Museum.</p>
+				<a href="MmpGitHubAssignment/Index.html">View Project</a>
+			</div>
+
+			<div class="card">
+				<h2>Quiet Motion</h2>
+				<p>A peaceful animation of a car moving along a road, with scene design created in Photoshop and Illustrator, and motion built in After Effects.</p>
+				<a href="FinalGitHub/final.html">View Project</a>
+			</div>
+
+		</section>
+
+		<footer>
+			&copy; 2026 San — Built with HTML &amp; CSS
+		</footer>
+
+	</body>
+
+</html>
