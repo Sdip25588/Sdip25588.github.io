@@ -1,0 +1,63 @@
+name: CI – HTML smoke test
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  validate-html:
+    name: Validate HTML files
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for leftover Git conflict markers
+        run: |
+          if grep -rn "^<<<<<<<\|^=======$\|^>>>>>>>" --include="*.html" .; then
+            echo "ERROR: Git conflict markers found in HTML files." >&2
+            exit 1
+          fi
+          echo "No conflict markers found."
+
+      - name: Install html-validate
+        run: npm install -g html-validate
+
+      - name: Run html-validate on all HTML files
+        run: |
+          find . -name "*.html" -not -path "./.git/*" | xargs html-validate
+
+      - name: Check internal links resolve to real files
+        run: |
+          python3 - <<'EOF'
+          import os, re, sys
+
+          errors = []
+          html_dir = "."
+
+          for root, dirs, files in os.walk(html_dir):
+              dirs[:] = [d for d in dirs if d != ".git"]
+              for fname in files:
+                  if not fname.endswith(".html"):
+                      continue
+                  fpath = os.path.join(root, fname)
+                  with open(fpath) as f:
+                      content = f.read()
+                  # Find href/src values that are NOT external URLs or anchors
+                  links = re.findall(r'(?:href|src)=["\'](?!https?://|#)([^"\']+)["\']', content)
+                  for link in links:
+                      target = os.path.normpath(os.path.join(root, link))
+                      if not os.path.exists(target):
+                          errors.append(f"{fpath}: broken link → {link} (resolved: {target})")
+
+          if errors:
+              print("BROKEN INTERNAL LINKS:")
+              for e in errors:
+                  print(" ", e)
+              sys.exit(1)
+          else:
+              print("All internal links OK.")
+          EOF
